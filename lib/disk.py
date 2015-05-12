@@ -6,17 +6,12 @@
 
 from config import disk
 from lib import core
-import os,re,time
+import os,re
 
-login_time=0
 
 def init():
     "对外接口"
-    global login_time
-    
-    if not time.time()-login_time>disk.DISK_DELAY:
-        return False
-    
+    sign=True
     for t in disk.DISK_PATH:
         warn,data=check(t)
         if not warn:
@@ -26,6 +21,14 @@ def init():
             print message
             core.sendEmail(message)
             print u"邮件已经发出"
+            sign=False
+    return sign
+    
+
+def getIntervalTime():
+    "获取检测间隔时间"
+    return disk.DISK_DELAY
+
     
 def check(path):
     "检测是否超出预警"

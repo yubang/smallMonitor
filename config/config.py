@@ -14,4 +14,8 @@ EMAIL_SMTP = "smtp.gmail.com"
 #功能开启
 USE_DISK = True #是否启用磁盘监控
 USE_HTTP = True #是否启用http检测监控
+USE_MYSQL = True #是否启用mysql监控
+
+#警报间隔时间（防止短时间内发送大量警报）
+WARN_INTERVAL = 600
 

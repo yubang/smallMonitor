@@ -10,5 +10,5 @@ DISK_PATH=['/','/dev/shm']
 #预警百分率(0-100)
 DISK_USED=80
 
-#警报发出以后多少秒内不发警报
+#检测间隔时间
 DISK_DELAY=60
